@@ -1,5 +1,7 @@
 package ch.ny.firstday;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +16,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickBackButton(View v){
-        System.out.println("clicked Back");
+
+        new AlertDialog.Builder(v.getContext())
+                .setTitle("Exit")
+                .setMessage("Do you really want to leave Michelin man?!")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        System.exit(0);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(R.drawable.sad_michelin)
+                .show();
     }
 
     public void onClickLoginButton(View v){
