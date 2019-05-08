@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickLoginButton(View v){
+        EditText username = findViewById(R.id.editUsername);
+        EditText password = findViewById(R.id.editPassword);
+        password.getText().clear();
+        username.getText().clear();
         Toast.makeText(v.getContext(), "Login successful", Toast.LENGTH_LONG).show();
     }
 }
