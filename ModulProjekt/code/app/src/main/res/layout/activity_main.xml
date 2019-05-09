@@ -18,9 +18,9 @@
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:gravity="center"
-        android:text="City"
+        android:text="@string/home_city_name"
         android:textColor="@android:color/background_light"
-        android:textSize="55sp"
+        android:textSize="@dimen/home_title_font_size"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,11 +28,11 @@
 
     <ImageView
         android:id="@+id/btn_Favorit"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="@dimen/icon_width"
+        android:layout_height="@dimen/icon_height"
+        android:layout_marginTop="@dimen/favorite_icon_constraint_top"
         android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="@dimen/favorite_icon_constraint_right"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/favorit_selected" />
@@ -55,9 +55,9 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="80dp"
-        android:text="11°C"
+        android:text="@string/home_temperature"
         android:textColor="@android:color/white"
-        android:textSize="55sp"
+        android:textSize="@dimen/home_title_font_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
