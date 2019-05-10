@@ -26,17 +26,6 @@
         app:tabIndicatorHeight="0dp" />
 
     <ImageView
-        android:id="@+id/btn_Favorit"
-        android:layout_width="@dimen/icon_width"
-        android:layout_height="@dimen/icon_height"
-        android:layout_marginTop="@dimen/favorite_icon_constraint_top"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="@dimen/favorite_icon_constraint_right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/favorite_selected" />
-
-    <ImageView
         android:id="@+id/btn_Add"
         android:layout_width="50dp"
         android:layout_height="50dp"
