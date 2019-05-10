@@ -1,6 +1,8 @@
 package ch.ny.searchactivity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import ch.ny.detailsactivity.DetailsActivity;
 import ch.ny.homeactivity.R;
 
 public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
@@ -46,6 +49,7 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
             viewHolder = new ViewHolder();
             viewHolder.itemNameTextView = convertView.findViewById(R.id.textview_itemname_listview);
             viewHolder.itemNumberTextView = convertView.findViewById(R.id.textview_itemnumber_listview);
+            viewHolder.itemButtonTextView = convertView.findViewById(R.id.showdetailsbutton);
             convertView.setTag(viewHolder);
         }
         else {
@@ -63,6 +67,7 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
     public static class ViewHolder {
         TextView itemNameTextView;
         TextView itemNumberTextView;
+        TextView itemButtonTextView;
     }
 }
 

@@ -2,13 +2,11 @@ package ch.ny.searchactivity;
 
 public class ListViewObject {
     private String itemName;
-
     private int itemNumber;
 
     public String getItemName() {
         return itemName;
     }
-
     public void setItemName(String itemName) {
         this.itemName = itemName;
     }
@@ -16,7 +14,6 @@ public class ListViewObject {
     public int getItemNumber() {
         return itemNumber;
     }
-
     public void setItemNumber(int itemNumber) {
         this.itemNumber = itemNumber;
     }

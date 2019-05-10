@@ -8,19 +8,21 @@
 
     <SearchView
         android:id="@+id/searchcity"
-        android:layout_width="387dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:iconifiedByDefault="false"
         android:queryHint="Search for city"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="34dp" />
+        app:layout_constraintBottom_toTopOf="@+id/listCities"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/listCities"
-        android:layout_width="395dp"
-        android:layout_height="641dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#00FFFFFF"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="89dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="110dp" />
 
 </android.support.constraint.ConstraintLayout>
