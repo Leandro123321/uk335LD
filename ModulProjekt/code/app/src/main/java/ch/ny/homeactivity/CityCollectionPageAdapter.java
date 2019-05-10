@@ -7,31 +7,39 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.List;
 
+import ch.ny.Entity.City;
+
 public class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
 
-    private List<String> cityNames;
+    private List<City> cityList;
 
-    public CityCollectionPageAdapter(FragmentManager fm, List<String> cityNames) {
+    public CityCollectionPageAdapter(FragmentManager fm, List<City> cityList) {
         super(fm);
-        this.cityNames = cityNames;
+        this.cityList = cityList;
     }
 
     @Override
-    // Change parameter type to our later created objects
     public Fragment getItem(int i) {
-        CityFragment fragment = new CityFragment();
+        if(cityList != null && cityList.size() > 0) {
 
-        Bundle bundle = new Bundle();
-        bundle.putString("key_city_name" , cityNames.get(i));
+            CityFragment fragment = new CityFragment();
 
-        fragment.setArguments(bundle);
+            Bundle bundle = new Bundle();
+            bundle.putString("key_city_name", cityList.get(i).getCityname());
+            bundle.putInt("key_city_temperature", cityList.get(i).getTemperature());
+            bundle.putString("key_city_status", cityList.get(i).getStatus());
 
-        return fragment;
+            fragment.setArguments(bundle);
+
+            return fragment;
+        } else {
+            return null;
+        }
     }
 
     @Override
     // Change this object to later have a collection of CityObjects and return the size of it
     public int getCount() {
-        return cityNames.size();
+        return cityList.size();
     }
 }

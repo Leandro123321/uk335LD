@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import ch.ny.Entity.City;
+import ch.ny.connections.AppDatabase;
+import ch.ny.dao.CityDao;
 import ch.ny.detailsactivity.DetailsActivity;
 import ch.ny.searchactivity.SearchActivity;
 
@@ -27,17 +30,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<String> cityNames = new LinkedList();
-        cityNames.add("London");
-        cityNames.add("Zurich");
-        cityNames.add("Lisbon");
+        CityDao cityDao = AppDatabase.getAppDb(getApplicationContext()).getCityDao();
+        List<City> cityList = cityDao.getAll();
 
-        viewPager = findViewById(R.id.pager);
-        cityCollectionPagerAdapter = new CityCollectionPageAdapter(getSupportFragmentManager(), cityNames);
-        viewPager.setAdapter(cityCollectionPagerAdapter);
+        // In case you wan't to try the home screen and didn't save anything in the database
+        // comment out the following code
+        /*
+        City london = new City();
+        london.setCityname("London");
+        london.setTemperature(14);
+        london.setStatus("cloudy");
 
-        TabLayout tabLayout = findViewById(R.id.tabDots);
-        tabLayout.setupWithViewPager(viewPager, true);
+        City lisbon = new City();
+        lisbon.setCityname("Lisbon");
+        lisbon.setTemperature(18);
+        lisbon.setStatus("sunny");
+
+        City zurich = new City();
+        zurich.setCityname("Zurich");
+        zurich.setTemperature(14);
+        zurich.setStatus("sunny");
+
+        cityList.add(london);
+        cityList.add(lisbon);
+        cityList.add(zurich);
+        */
+
+        if(cityList != null && cityList.size() > 0) {
+            viewPager = findViewById(R.id.pager);
+            cityCollectionPagerAdapter = new CityCollectionPageAdapter(getSupportFragmentManager(), cityList);
+            viewPager.setAdapter(cityCollectionPagerAdapter);
+
+            TabLayout tabLayout = findViewById(R.id.tabDots);
+            tabLayout.setupWithViewPager(viewPager, true);
+        } else {
+            startActivity(new Intent(this, SearchActivity.class));
+        }
     }
 
     public void onClickAdd(View v){

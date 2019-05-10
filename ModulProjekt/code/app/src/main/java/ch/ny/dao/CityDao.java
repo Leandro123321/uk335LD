@@ -18,4 +18,7 @@ public interface CityDao {
 
     @Insert
     void insertAll(List<City> cities);
+
+    @Insert
+    void insertOne(City city);
 }
