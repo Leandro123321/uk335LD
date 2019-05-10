@@ -1,4 +1,4 @@
-package ch.ny.homeactivity;
+package ch.ny.searchactivity;
 
 public class ListViewObject {
     private String itemName;

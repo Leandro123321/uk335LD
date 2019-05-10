@@ -1,4 +1,4 @@
-package ch.ny.homeactivity;
+package ch.ny.searchactivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import ch.ny.homeactivity.R;
 
 public class SearchActivity extends AppCompatActivity {
 
