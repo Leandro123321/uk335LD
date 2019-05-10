@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import ch.ny.detailsactivity.DetailsActivity;
@@ -29,14 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabDots);
         tabLayout.setupWithViewPager(viewPager, true);
-    }
-
-    public void onClickOpenDetails(View v){
-        TextView cityLabel = findViewById(R.id.lbl_City);
-        String city = cityLabel.getText().toString();
-        Intent showDetailActivityIntent = new Intent(this, DetailsActivity.class);
-        showDetailActivityIntent.putExtra("key_city_name", city);
-        startActivity(showDetailActivityIntent);
     }
 
     public void onClickAdd(View v){
