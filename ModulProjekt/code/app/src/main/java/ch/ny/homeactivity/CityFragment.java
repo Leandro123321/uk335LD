@@ -6,13 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
  * A simple {@link Fragment} subclass.
+ * Instances of this class are fragments representing a single
+ * object in our collection
  */
 public class CityFragment extends Fragment {
-
 
     public CityFragment() {
         // Required empty public constructor
