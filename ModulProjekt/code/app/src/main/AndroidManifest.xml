@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name="ch.ny.detailsactivity.DetailsActivity"></activity>
+        <activity android:name="ch.ny.searchactivity.SearchActivity"></activity>
         <activity android:name=".MainActivity">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name="ch.ny.searchactivity.SearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
