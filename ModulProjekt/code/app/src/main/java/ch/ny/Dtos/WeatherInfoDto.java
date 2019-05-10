@@ -1,9 +1,9 @@
-package ch.ny.homeactivity;
+package ch.ny.Dtos;
 
-public class WeatherInfo {
+public class WeatherInfoDto {
     public String main;
 
-    public WeatherInfo(String main){
+    public WeatherInfoDto(String main){
         this.main = main;
     }
 }

@@ -1,13 +1,13 @@
-package ch.ny.homeactivity;
+package ch.ny.Dtos;
 
-public class CityInfo {
+public class CityInfoDto {
 
-    public WeatherInfo weatherInfo;
-    public WeatherInfoMain weatherInfoMain;
+    public WeatherInfoDto[] weather;
+    public WeatherInfoMainDto main;
 
-    public CityInfo(WeatherInfo weatherInfo, WeatherInfoMain weatherInfoMain) {
-        this.weatherInfo = weatherInfo;
-        this.weatherInfoMain = weatherInfoMain;
+    public CityInfoDto(WeatherInfoDto[] weather, WeatherInfoMainDto main) {
+        this.weather = weather;
+        this.main = main;
     }
 
 }
