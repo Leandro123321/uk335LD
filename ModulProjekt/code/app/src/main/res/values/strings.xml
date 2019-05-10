@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HomeActivity</string>
+    <string name="home_city_name">Zürich</string>
+    <string name="home_temperature">11°C</string>
 </resources>
