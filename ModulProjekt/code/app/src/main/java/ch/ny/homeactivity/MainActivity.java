@@ -2,6 +2,14 @@ package ch.ny.homeactivity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
+=======
+import android.view.View;
+import android.widget.TextView;
+
+import ch.ny.detailsactivity.DetailsActivity;
+import ch.ny.searchactivity.SearchActivity;
+>>>>>>> 03a0a56... Merge branch 'navigation' into ApllicationBase
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,4 +18,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+<<<<<<< HEAD
+=======
+
+    public void onClickOpenDetails(View v){
+        TextView cityLabel = findViewById(R.id.lbl_City);
+        String city = cityLabel.getText().toString();
+        Intent showDetailActivityIntent = new Intent(this, DetailsActivity.class);
+        showDetailActivityIntent.putExtra("key_city_name", city);
+        startActivity(showDetailActivityIntent);
+    }
+
+    public void onClickAdd(View v){
+        startActivity(new Intent(this, SearchActivity.class));
+    }
+>>>>>>> 03a0a56... Merge branch 'navigation' into ApllicationBase
 }
