@@ -1,8 +1,3 @@
 <resources>
     <string name="app_name">HomeActivity</string>
-<<<<<<< HEAD
-=======
-    <string name="home_city_name">Zürich</string>
-    <string name="home_temperature">11°C</string>
->>>>>>> 03a0a56... Merge branch 'navigation' into ApllicationBase
 </resources>
