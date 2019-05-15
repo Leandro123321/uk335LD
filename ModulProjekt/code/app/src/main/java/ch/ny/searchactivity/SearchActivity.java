@@ -71,13 +71,14 @@ public class SearchActivity extends AppCompatActivity {
         List<City> possibleCities = cityDao.getAllStartingWith(text);
 
         for (int i = 0; i < possibleCities.size(); i++) {
-            ListViewObject item1 = new ListViewObject();
+            ListViewObject item = new ListViewObject();
 
             City city = possibleCities.get(i);
 
-            item1.setCityName(city.name);
-            item1.setCountry(Integer.toString(i+1));
-            itemList.add(item1);
+            item.setId(city.id);
+            item.setCityName(city.name);
+            item.setCountry(city.country);
+            itemList.add(item);
         }
 
         ListView listView = findViewById(R.id.listCities);

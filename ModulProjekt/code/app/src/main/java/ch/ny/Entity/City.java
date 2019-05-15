@@ -16,6 +16,9 @@ public class City {
     public String name;
 
     @ColumnInfo
+    public String country;
+
+    @ColumnInfo
     public int temperature;
 
     @ColumnInfo
@@ -59,6 +62,10 @@ public class City {
     public boolean isFavorite() { return this.isFavorite; }
 
     public void setFavorite(boolean isFavorite) { this.isFavorite = isFavorite; }
+
+    public String getCountry() { return this.country; }
+
+    public void setCountry(String country) { this.country = country; }
 
 
 }
