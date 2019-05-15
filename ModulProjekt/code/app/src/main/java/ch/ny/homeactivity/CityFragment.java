@@ -111,8 +111,6 @@ public class CityFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        cityDao.insertOne(city);
     }
 
     // Call API

@@ -53,19 +53,13 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ListViewObject object = (ListViewObject) parent.getItemAtPosition(position);
+                cityDao.UpdateFavorite(object.getId());
                 Intent showNameActivityIntent = new Intent(getApplicationContext(), DetailsActivity.class);
                 showNameActivityIntent.putExtra("key_city_id", object.getId());
+                showNameActivityIntent.putExtra("key_city_name", object.getCityName());
                 startActivity(showNameActivityIntent);
             }
         });
-    }
-
-    public void onClickOpenDetails(View sendButton){
-        /*TextView cityLabel = sendButton.findViewById(R.id.textview_itemname_listview);
-        String name = cityLabel.getText().toString();
-        Intent showNameActivityIntent = new Intent(this, DetailsActivity.class);
-        showNameActivityIntent.putExtra("key_city_name", name);
-        startActivity(showNameActivityIntent);*/
     }
 
     public void UpdateListView(String text){

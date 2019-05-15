@@ -47,7 +47,6 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
             viewHolder = new ViewHolder();
             viewHolder.itemNameTextView = convertView.findViewById(R.id.textview_itemname_listview);
             viewHolder.itemNumberTextView = convertView.findViewById(R.id.textview_itemnumber_listview);
-            viewHolder.itemButtonTextView = convertView.findViewById(R.id.showdetailsbutton);
             convertView.setTag(viewHolder);
         }
         else {
@@ -65,7 +64,6 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
     public static class ViewHolder {
         TextView itemNameTextView;
         TextView itemNumberTextView;
-        TextView itemButtonTextView;
     }
 }
 
