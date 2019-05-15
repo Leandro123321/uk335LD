@@ -3,12 +3,21 @@ package ch.ny.detailsactivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import ch.ny.Dtos.CityInfoDto;
@@ -71,15 +80,24 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
+                String list = null;
+
+                try {
+                    JSONObject jsonObject = new JSONObject(body);
+                    JSONArray array = jsonObject.getJSONArray("list");
+                    list = array.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 Gson gson = new Gson();
-                hourlyInfo = gson.fromJson(body, new TypeToken<List<CityInfoDto>>(){}.getType());
+                hourlyInfo = gson.fromJson(list, new TypeToken<List<CityInfoDto>>(){}.getType());
             }
         });
     }
 
     private void getWeeklyForecast() {
-        String url = "https://api.openweathermap.org/data/2.5/forecast/daily?id="+city.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417&cnt=6";
+        String url = "https://api.openweathermap.org/data/2.5/forecast?id="+city.getId()+"&units=metric&cnt=6&appid=77078c41435ef3379462eb28afbdf417";
 
         Request request = new Request.Builder()
                 .url(url)
@@ -97,9 +115,18 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
+                String list = null;
+
+                try {
+                    JSONObject jsonObject = new JSONObject(body);
+                    JSONArray array = jsonObject.getJSONArray("list");
+                    list = array.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
                 Gson gson = new Gson();
-                weeklyInfo = gson.fromJson(body, new TypeToken<List<CityInfoDto>>(){}.getType());
+                hourlyInfo = gson.fromJson(list, new TypeToken<List<CityInfoDto>>(){}.getType());
             }
         });
     }
