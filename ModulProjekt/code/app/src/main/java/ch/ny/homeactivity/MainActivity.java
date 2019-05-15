@@ -35,8 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         // In case you wan't to try the home screen and didn't save anything in the database
         // comment out the following code
-        /*
-        City london = new City();
+        /*City london = new City();
         london.setCityname("London");
         london.setTemperature(14);
         london.setStatus("cloudy");
@@ -53,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         cityList.add(london);
         cityList.add(lisbon);
-        cityList.add(zurich);
-        */
+        cityList.add(zurich);*/
 
         if(cityList != null && cityList.size() > 0) {
             viewPager = findViewById(R.id.pager);

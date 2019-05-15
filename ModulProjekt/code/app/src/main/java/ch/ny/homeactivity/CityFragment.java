@@ -2,7 +2,10 @@ package ch.ny.homeactivity;
 
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +45,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
 
     private TextView cityNameLbl;
     private TextView temperatureLbl;
+    private ConstraintLayout background;
 
     private City city;
     private CityDao cityDao;
@@ -79,12 +83,26 @@ public class CityFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         cityNameLbl = view.findViewById(R.id.lbl_City);
         temperatureLbl = view.findViewById(R.id.lbl_Temperatur);
+        background = view.findViewById(R.id.background);
+
+        //Set Background
+        //setBackground();
 
         client = OkClientFactory.getClient();
         try {
             getHttpResponse();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void setBackground() {
+        switch(city.getStatus()) {
+            case "sunny":
+              background.setBackground(Drawable.createFromPath("/drawable/sunny_day.jpg"));
+              break;
+            default:
+                background.setBackground(Drawable.createFromPath("/drawable/neutral_background.jpg"));
         }
     }
 
