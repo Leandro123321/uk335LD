@@ -1,26 +1,17 @@
 package ch.ny.searchactivity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
-import ch.ny.Dtos.CityInfoDto;
 import ch.ny.Entity.City;
 import ch.ny.connections.AppDatabase;
 import ch.ny.dao.CityDao;
@@ -39,6 +30,8 @@ public class SearchActivity extends AppCompatActivity {
 
         SearchView searchView = findViewById(R.id.searchcity);
 
+        ListView listview = findViewById(R.id.listCities);
+
         cityDao = AppDatabase.getAppDb(getApplicationContext()).getCityDao();
 
         UpdateListView("");
@@ -55,14 +48,24 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ListViewObject object = (ListViewObject) parent.getItemAtPosition(position);
+                Intent showNameActivityIntent = new Intent(getApplicationContext(), DetailsActivity.class);
+                showNameActivityIntent.putExtra("key_city_id", object.getId());
+                startActivity(showNameActivityIntent);
+            }
+        });
     }
 
-    public void onClickOpenDetails(View sendButton) {
-        TextView cityLabel = findViewById(R.id.textview_itemname_listview);
+    public void onClickOpenDetails(View sendButton){
+        /*TextView cityLabel = sendButton.findViewById(R.id.textview_itemname_listview);
         String name = cityLabel.getText().toString();
         Intent showNameActivityIntent = new Intent(this, DetailsActivity.class);
         showNameActivityIntent.putExtra("key_city_name", name);
-        startActivity(showNameActivityIntent);
+        startActivity(showNameActivityIntent);*/
     }
 
     public void UpdateListView(String text){
