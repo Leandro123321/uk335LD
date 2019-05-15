@@ -27,4 +27,7 @@ public interface CityDao {
 
     @Insert
     void insertOne(City city);
+
+    @Query("UPDATE city SET isFavorite = 1 WHERE id = :id")
+    void UpdateFavorite(int id);
 }

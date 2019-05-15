@@ -26,6 +26,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    CityDao cityDao;
+
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection
     CityCollectionPageAdapter cityCollectionPagerAdapter;
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CityDao cityDao = AppDatabase.getAppDb(getApplicationContext()).getCityDao();
+        cityDao = AppDatabase.getAppDb(getApplicationContext()).getCityDao();
         List<City> cityList = cityDao.getAll();
 
        if(cityList.isEmpty()) {
@@ -44,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
            cityDao.insertAll(cityList);
        }
 
-       List<City> favorites = cityDao.getFavorites();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        List<City> favorites = cityDao.getFavorites();
         if(!favorites.isEmpty()) {
             viewPager = findViewById(R.id.pager);
             cityCollectionPagerAdapter = new CityCollectionPageAdapter(getSupportFragmentManager(), favorites);
@@ -56,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SearchActivity.class));
         }
     }
-
     public void onClickAdd(View v){
         startActivity(new Intent(this, SearchActivity.class));
     }
