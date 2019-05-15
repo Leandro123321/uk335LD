@@ -1,19 +1,17 @@
 package ch.ny.Dtos;
 
+import java.time.LocalDateTime;
+
 public class CityInfoDto {
 
-    public int id;
-    public String name;
-    public String country;
     public WeatherInfoDto[] weather;
     public WeatherInfoMainDto main;
+    public LocalDateTime dt;
 
-    public CityInfoDto(int id, String name, String country, WeatherInfoDto[] weather, WeatherInfoMainDto main) {
-        this.id = id;
-        this.name = name;
-        this.country = country;
+    public CityInfoDto(WeatherInfoDto[] weather, WeatherInfoMainDto main, LocalDateTime dt) {
         this.weather = weather;
         this.main = main;
+        this.dt = dt;
     }
 
 }

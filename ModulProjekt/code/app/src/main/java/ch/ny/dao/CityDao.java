@@ -16,6 +16,9 @@ public interface CityDao {
     @Query("SELECT DISTINCT * FROM city WHERE city.name LIKE :text || '%' LIMIT 10")
     List<City> getAllStartingWith(String text);
 
+    @Query("SELECT DISTINCT * FROM city WHERE city.isFavorite = 1")
+    List<City> getFavorites();
+
     @Query("DELETE FROM city")
     void deleteAll();
 
