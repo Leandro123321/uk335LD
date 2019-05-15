@@ -1,8 +1,6 @@
 package ch.ny.searchactivity;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ch.ny.detailsactivity.DetailsActivity;
 import ch.ny.homeactivity.R;
 
 public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
@@ -56,9 +53,9 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        String name = getItem(position).getItemName();
+        String name = getItem(position).getCityName();
         viewHolder.itemNameTextView.setText(name);
-        String number = String.valueOf(getItem(position).getItemNumber());
+        String number = String.valueOf(getItem(position).getCountry());
         viewHolder.itemNumberTextView.setText(number);
 
         return convertView;

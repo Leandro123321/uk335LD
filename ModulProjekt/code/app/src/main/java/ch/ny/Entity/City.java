@@ -9,17 +9,20 @@ import android.arch.persistence.room.PrimaryKey;
 public class City {
 
     //Autoincrement
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     public int id;
 
     @ColumnInfo
-    public String Cityname;
+    public String name;
 
     @ColumnInfo
     public int temperature;
 
     @ColumnInfo
     public String status;
+
+    @ColumnInfo
+    public boolean isFavorite;
 
     public int getId() {
         return id;
@@ -29,12 +32,12 @@ public class City {
         this.id = id;
     }
 
-    public String getCityname() {
-        return Cityname;
+    public String getName() {
+        return name;
     }
 
-    public void setCityname(String cityname) {
-        Cityname = cityname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getTemperature() {
@@ -52,4 +55,10 @@ public class City {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public boolean isFavorite() { return this.isFavorite; }
+
+    public void setFavorite(boolean isFavorite) { this.isFavorite = isFavorite; }
+
+
 }

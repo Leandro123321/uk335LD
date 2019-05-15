@@ -59,7 +59,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         city = new City();
         cityDao = AppDatabase.getAppDb(getActivity().getApplicationContext()).getCityDao();
 
-        city.setCityname(getArguments().getString("key_city_name"));
+        city.setName(getArguments().getString("key_city_name"));
         city.setTemperature(getArguments().getInt("key_city_temperature"));
         city.setStatus(getArguments().getString("key_city_status"));
 
@@ -75,7 +75,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v){
         Intent showDetailActivityIntent = new Intent(this.getActivity(), DetailsActivity.class);
-        showDetailActivityIntent.putExtra("key_city_name", city.getCityname());
+        showDetailActivityIntent.putExtra("key_city_name", city.getName());
         startActivity(showDetailActivityIntent);
     }
 
@@ -115,7 +115,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
 
     // Call API
     public void getHttpResponse() throws IOException{
-        String url = "https://api.openweathermap.org/data/2.5/weather?q="+city.getCityname()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
+        String url = "https://api.openweathermap.org/data/2.5/weather?q="+city.getName()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
 
         Request request = new Request.Builder()
                 .url(url)
@@ -153,7 +153,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void run() {
-                cityNameLbl.setText(city.getCityname());
+                cityNameLbl.setText(city.getName());
                 temperatureLbl.setText(temperatureString);
             }
         });

@@ -1,20 +1,20 @@
 package ch.ny.searchactivity;
 
 public class ListViewObject {
-    private String itemName;
-    private int itemNumber;
+    private String cityName;
+    private String country;
 
-    public String getItemName() {
-        return itemName;
+    public String getCityName() {
+        return cityName;
     }
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
-    public int getItemNumber() {
-        return itemNumber;
+    public String getCountry() {
+        return country;
     }
-    public void setItemNumber(int itemNumber) {
-        this.itemNumber = itemNumber;
+    public void setCountry(String country) {
+        this.country = country;
     }
 }
