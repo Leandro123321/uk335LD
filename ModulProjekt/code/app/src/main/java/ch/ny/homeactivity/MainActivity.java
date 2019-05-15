@@ -44,16 +44,17 @@ public class MainActivity extends AppCompatActivity {
            cityDao.insertAll(cityList);
        }
 
-        /*if(cityList != null && cityList.size() > 0) {
+       List<City> favorites = cityDao.getFavorites();
+        if(!favorites.isEmpty()) {
             viewPager = findViewById(R.id.pager);
-            cityCollectionPagerAdapter = new CityCollectionPageAdapter(getSupportFragmentManager(), cityList);
+            cityCollectionPagerAdapter = new CityCollectionPageAdapter(getSupportFragmentManager(), favorites);
             viewPager.setAdapter(cityCollectionPagerAdapter);
 
             TabLayout tabLayout = findViewById(R.id.tabDots);
             tabLayout.setupWithViewPager(viewPager, true);
-        } else {*/
+        } else {
             startActivity(new Intent(this, SearchActivity.class));
-        //}
+        }
     }
 
     public void onClickAdd(View v){

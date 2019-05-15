@@ -59,6 +59,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         city = new City();
         cityDao = AppDatabase.getAppDb(getActivity().getApplicationContext()).getCityDao();
 
+        city.setId(getArguments().getInt("key_city_id"));
         city.setName(getArguments().getString("key_city_name"));
         city.setTemperature(getArguments().getInt("key_city_temperature"));
         city.setStatus(getArguments().getString("key_city_status"));
@@ -76,6 +77,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v){
         Intent showDetailActivityIntent = new Intent(this.getActivity(), DetailsActivity.class);
         showDetailActivityIntent.putExtra("key_city_name", city.getName());
+        showDetailActivityIntent.putExtra("key_city_id", city.getId());
         startActivity(showDetailActivityIntent);
     }
 
@@ -96,7 +98,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private void setBackground() {
+    /*private void setBackground() {
         switch(city.getStatus()) {
             case "sunny":
               background.setBackground(Drawable.createFromPath("/drawable/sunny_day.jpg"));
@@ -104,7 +106,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
             default:
                 background.setBackground(Drawable.createFromPath("/drawable/neutral_background.jpg"));
         }
-    }
+    }*/
 
     @Override
     public void onDestroy() {
@@ -115,7 +117,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
 
     // Call API
     public void getHttpResponse() throws IOException{
-        String url = "https://api.openweathermap.org/data/2.5/weather?q="+city.getName()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
+        String url = "https://api.openweathermap.org/data/2.5/weather?id="+city.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
 
         Request request = new Request.Builder()
                 .url(url)

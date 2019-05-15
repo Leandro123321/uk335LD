@@ -25,6 +25,7 @@ public class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
             CityFragment fragment = new CityFragment();
 
             Bundle bundle = new Bundle();
+            bundle.putInt("key_city_id", cityList.get(i).getId());
             bundle.putString("key_city_name", cityList.get(i).getName());
             bundle.putInt("key_city_temperature", cityList.get(i).getTemperature());
             bundle.putString("key_city_status", cityList.get(i).getStatus());
