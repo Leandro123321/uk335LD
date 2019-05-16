@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
@@ -15,8 +15,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.sql.Timestamp;
+import java.lang.reflect.Type;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,10 +41,19 @@ public class DetailsActivity extends AppCompatActivity {
     private List<CityInfoDto> hourlyInfo;
     private List<CityInfoDto> weeklyInfo;
 
+    private ListView hourlyView;
+    private ListView weeklyView;
+
+    private List<HourlyListViewObject> hourlyListViewObjectList;
+    private List<WeeklyListViewObject> weeklyListViewObjectList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+        hourlyView = findViewById(R.id.listHourly);
+        weeklyView = findViewById(R.id.listWeekly);
 
         Intent intent = getIntent();
 
@@ -52,7 +64,7 @@ public class DetailsActivity extends AppCompatActivity {
         int cityId = intent.getIntExtra("key_city_id", 0);
         city.setId(cityId);
 
-        TextView cityLabel = findViewById(R.id.textView);
+        TextView cityLabel = findViewById(R.id.lblTitle);
         cityLabel.setText(city.getName());
 
         client = OkClientFactory.getClient();
@@ -92,6 +104,31 @@ public class DetailsActivity extends AppCompatActivity {
 
                 Gson gson = new Gson();
                 hourlyInfo = gson.fromJson(list, new TypeToken<List<CityInfoDto>>(){}.getType());
+                updateHourlyListView();
+            }
+        });
+    }
+
+    private void updateHourlyListView() {
+        hourlyListViewObjectList = new ArrayList<>();
+        List<CityInfoDto> possibleCities = hourlyInfo;
+
+        for (int i = 0; i < possibleCities.size(); i++) {
+            HourlyListViewObject item = new HourlyListViewObject();
+
+            CityInfoDto city = possibleCities.get(i);
+
+            item.setTime(new SimpleDateFormat("HH").format(new Date(city.dt * 1000)));
+            item.setStatus(city.weather[0].main);
+            item.setTemp(Integer.toString(Math.round(city.main.temp)));
+            hourlyListViewObjectList.add(item);
+        }
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                hourlyView.setAdapter(new HourlyListViewAdapter(getApplicationContext(), hourlyListViewObjectList));
             }
         });
     }
@@ -126,7 +163,33 @@ public class DetailsActivity extends AppCompatActivity {
                 }
 
                 Gson gson = new Gson();
-                hourlyInfo = gson.fromJson(list, new TypeToken<List<CityInfoDto>>(){}.getType());
+                weeklyInfo = gson.fromJson(list, new TypeToken<List<CityInfoDto>>(){}.getType());
+                updateWeeklyListView();
+            }
+        });
+    }
+
+    private void updateWeeklyListView() {
+        weeklyListViewObjectList = new ArrayList<>();
+        List<CityInfoDto> possibleCities = weeklyInfo;
+
+        for (int i = 0; i < possibleCities.size(); i++) {
+            WeeklyListViewObject item = new WeeklyListViewObject();
+
+            CityInfoDto city = possibleCities.get(i);
+
+            String dayOfWeek = Instant.ofEpochMilli(city.dt * 1000).atZone(ZoneId.systemDefault()).toLocalDate().getDayOfWeek().toString();
+            item.setWeekday(dayOfWeek);
+            item.setMinTemp(Integer.toString(Math.round(city.main.temp_min)));
+            item.setMaxTemp(Integer.toString(Math.round(city.main.temp_max)));
+            weeklyListViewObjectList.add(item);
+        }
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                weeklyView.setAdapter(new WeeklyListViewAdapter(getApplicationContext(), weeklyListViewObjectList));
             }
         });
     }
