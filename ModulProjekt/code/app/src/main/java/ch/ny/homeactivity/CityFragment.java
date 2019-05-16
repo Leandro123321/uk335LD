@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.LinkedList;
@@ -70,15 +71,31 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         TextView TemperatureLabel = v.findViewById(R.id.lbl_Temperatur);
 
         TemperatureLabel.setOnClickListener(this);
+
+        ImageView btnFavorite = v.findViewById(R.id.btn_Favorit);
+
+        btnFavorite.setOnClickListener(this);
         return v;
     }
 
+
     @Override
     public void onClick(View v){
-        Intent showDetailActivityIntent = new Intent(this.getActivity(), DetailsActivity.class);
-        showDetailActivityIntent.putExtra("key_city_name", city.getName());
-        showDetailActivityIntent.putExtra("key_city_id", city.getId());
-        startActivity(showDetailActivityIntent);
+        switch (v.getId()){
+            case R.id.lbl_Temperatur:
+                Intent showDetailActivityIntent = new Intent(this.getActivity(), DetailsActivity.class);
+                showDetailActivityIntent.putExtra("key_city_name", city.getName());
+                showDetailActivityIntent.putExtra("key_city_id", city.getId());
+                startActivity(showDetailActivityIntent);
+                break;
+            case R.id.btn_Favorit:
+                cityDao.deleteCity(city);
+                startActivity(new Intent (getActivity() , MainActivity.class));
+                break;
+            default:
+                break;
+
+        }
     }
 
     @Override

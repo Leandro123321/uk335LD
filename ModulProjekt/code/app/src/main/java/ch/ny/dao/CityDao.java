@@ -1,6 +1,7 @@
 package ch.ny.dao;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -30,4 +31,7 @@ public interface CityDao {
 
     @Query("UPDATE city SET isFavorite = 1 WHERE id = :id")
     void UpdateFavorite(int id);
+
+    @Delete
+    void deleteCity(City city);
 }
