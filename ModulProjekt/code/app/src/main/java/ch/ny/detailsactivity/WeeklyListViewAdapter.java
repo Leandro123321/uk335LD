@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import ch.ny.homeactivity.R;
-import ch.ny.searchactivity.ListViewAdapter;
 
 public class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
 

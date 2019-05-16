@@ -1,28 +1,24 @@
 package ch.ny.homeactivity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import ch.ny.Dtos.CityInfoDto;
-import ch.ny.Entity.City;
-import ch.ny.connections.AppDatabase;
-import ch.ny.dao.CityDao;
-import ch.ny.detailsactivity.DetailsActivity;
-import ch.ny.searchactivity.SearchActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
+
+import ch.ny.Entity.City;
+import ch.ny.connections.AppDatabase;
+import ch.ny.dao.CityDao;
+import ch.ny.searchactivity.SearchActivity;
 
 public class MainActivity extends AppCompatActivity {
 

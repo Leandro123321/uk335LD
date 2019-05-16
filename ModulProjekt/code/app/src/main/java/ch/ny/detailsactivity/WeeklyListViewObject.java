@@ -10,12 +10,6 @@ public class WeeklyListViewObject {
 
     }
 
-    public WeeklyListViewObject(String weekday, String minTemp, String maxTemp) {
-        this.minTemp = minTemp;
-        this.maxTemp = maxTemp;
-        this.weekday = weekday;
-    }
-
     public String getWeekday() {
         return weekday;
     }
