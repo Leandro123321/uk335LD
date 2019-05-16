@@ -57,9 +57,9 @@ public class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
         String weekDay = getItem(position).getWeekday();
         viewHolder.weekDayTextView.setText(weekDay);
         String minTemp = getItem(position).getMinTemp();
-        viewHolder.minTempTextView.setText(minTemp);
+        viewHolder.minTempTextView.setText(minTemp + "°C");
         String maxTemp = getItem(position).getMaxTemp();
-        viewHolder.maxTempTextView.setText(maxTemp);
+        viewHolder.maxTempTextView.setText(maxTemp + "°C");
 
         return convertView;
     }

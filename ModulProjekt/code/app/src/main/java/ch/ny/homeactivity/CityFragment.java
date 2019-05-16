@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,6 +87,8 @@ public class CityFragment extends Fragment implements View.OnClickListener {
                 Intent showDetailActivityIntent = new Intent(this.getActivity(), DetailsActivity.class);
                 showDetailActivityIntent.putExtra("key_city_name", city.getName());
                 showDetailActivityIntent.putExtra("key_city_id", city.getId());
+                showDetailActivityIntent.putExtra("key_city_temp", city.getTemperature());
+                showDetailActivityIntent.putExtra("key_city_status", city.getStatus());
                 startActivity(showDetailActivityIntent);
                 break;
             case R.id.btn_Favorit:
@@ -115,21 +118,6 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    /*private void setBackground() {
-        switch(city.getStatus()) {
-            case "sunny":
-              background.setBackground(Drawable.createFromPath("/drawable/sunny_day.jpg"));
-              break;
-            default:
-                background.setBackground(Drawable.createFromPath("/drawable/neutral_background.jpg"));
-        }
-    }*/
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
     // Call API
     public void getHttpResponse() throws IOException{
         String url = "https://api.openweathermap.org/data/2.5/weather?id="+city.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
@@ -155,6 +143,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
                 CityInfoDto cityInfo = gson.fromJson(body, CityInfoDto.class);
 
                 // Update all changed values
+                //Log.e("STATUS", cityInfo.weather[0].main);
                 setNewValues(Math.round(cityInfo.main.temp), cityInfo.weather[0].main);
             }
         });

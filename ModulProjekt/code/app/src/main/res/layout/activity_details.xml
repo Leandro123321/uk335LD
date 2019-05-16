@@ -12,12 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="70dp"
-        android:layout_marginLeft="70dp"
         android:layout_marginTop="85dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/activity_title_font_size"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,44 +33,38 @@
         app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
 
     <ImageView
-        android:id="@+id/IconStatus"
+        android:id="@+id/iconStatus"
         android:layout_width="@dimen/icon_width"
         android:layout_height="@dimen/icon_height"
         android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="145dp"
-        android:layout_marginRight="145dp"
+        android:layout_marginEnd="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lblMainTemp"
-        app:layout_constraintTop_toBottomOf="@+id/lblTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/lblTitle"
+        app:srcCompat="@drawable/ic_wb_sunny_black_24dp" />
 
-    <ListView
-        android:id="@+id/listHourly"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerHourly"
         android:layout_width="394dp"
-        android:layout_height="103dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
         android:layout_marginTop="85dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IconStatus"
-        android:orientation="horizontal"
-        >
-
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/iconStatus" />
 
     <ListView
         android:id="@+id/listWeekly"
         android:layout_width="395dp"
         android:layout_height="347dp"
         android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerHourly" />
 </android.support.constraint.ConstraintLayout>

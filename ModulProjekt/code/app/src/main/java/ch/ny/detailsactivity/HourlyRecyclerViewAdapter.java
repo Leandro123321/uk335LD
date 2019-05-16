@@ -36,6 +36,7 @@ public class HourlyRecyclerViewAdapter extends RecyclerView.Adapter<HourlyRecycl
         // Set properties for holder
         holder.timeTextView.setText(itemList.get(position).getTime() + "h");
         holder.temperatureTextView.setText(itemList.get(position).getTemp() + "°C");
+        holder.statusImageView.setImageResource(DetailsActivity.getIcon(itemList.get(position).getStatus()));
     }
 
     @Override

@@ -1,13 +1,13 @@
 package ch.ny.Dtos;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class CityInfoDto {
 
     public WeatherInfoDto[] weather;
     public WeatherInfoMainDto main;
     public long dt;
-    public Timestamp time;
+    public LocalDateTime time;
 
     public CityInfoDto(WeatherInfoDto[] weather, WeatherInfoMainDto main, long dt) {
         this.weather = weather;

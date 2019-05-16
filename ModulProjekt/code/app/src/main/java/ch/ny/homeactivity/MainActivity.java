@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
            cityList = loadCities();
            cityDao.insertAll(cityList);
        }
-
-
     }
 
     @Override
@@ -65,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SearchActivity.class));
         }
     }
+
     public void onClickAdd(View v){
         startActivity(new Intent(this, SearchActivity.class));
     }
