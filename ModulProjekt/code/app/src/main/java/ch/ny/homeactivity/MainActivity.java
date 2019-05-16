@@ -60,10 +60,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * If you click the add button you will go the search activity
+     * @param v
+     */
     public void onClickAdd(View v){
         startActivity(new Intent(this, SearchActivity.class));
     }
 
+    /**
+     * Loads all cities from the JSON file and saves them in the Local Database
+     * @return
+     */
     public List<City> loadCities() {
         List<City> list;
 
