@@ -11,9 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name="ch.ny.detailsactivity.DetailsActivity"></activity>
-        <activity android:name="ch.ny.searchactivity.SearchActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name="ch.ny.detailsactivity.DetailsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="ch.ny.searchactivity.SearchActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
