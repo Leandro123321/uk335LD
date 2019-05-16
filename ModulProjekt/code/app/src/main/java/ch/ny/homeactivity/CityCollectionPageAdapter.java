@@ -9,6 +9,10 @@ import java.util.List;
 
 import ch.ny.Entity.City;
 
+/**
+ * This Class serves as the "interface" between each collection member that will be
+ * displayed and it also holds the city collection
+ */
 public class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
 
     private List<City> cityList;
