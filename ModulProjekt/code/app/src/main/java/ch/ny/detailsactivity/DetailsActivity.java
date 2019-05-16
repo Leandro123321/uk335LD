@@ -184,6 +184,9 @@ public class DetailsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Calls the api and gets info for today and the next 4 days
+     */
     private void getWeeklyForecast() {
         String url = "https://api.openweathermap.org/data/2.5/forecast?id="+city.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
 
@@ -220,6 +223,10 @@ public class DetailsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Updates the UI with info from our list and makes sure there is only one
+     * set of data for each day
+     */
     private void updateWeeklyListView() {
         weeklyListViewObjectList = new ArrayList<>();
 
