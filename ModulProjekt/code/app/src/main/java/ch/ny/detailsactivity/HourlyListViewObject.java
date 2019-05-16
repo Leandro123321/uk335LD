@@ -10,12 +10,6 @@ public class HourlyListViewObject {
 
     }
 
-    public HourlyListViewObject(String time, String status, String temp) {
-        this.time = time;
-        this.status = status;
-        this.temp = temp;
-    }
-
     public String getTime() {
         return time;
     }

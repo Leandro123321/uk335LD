@@ -2,33 +2,25 @@ package ch.ny.homeactivity;
 
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
 import com.google.gson.Gson;
-
-import ch.ny.Entity.City;
-import ch.ny.connections.AppDatabase;
-import ch.ny.dao.CityDao;
-import ch.ny.detailsactivity.DetailsActivity;
-
 
 import java.io.IOException;
 
 import ch.ny.Dtos.CityInfoDto;
+import ch.ny.Entity.City;
+import ch.ny.connections.AppDatabase;
 import ch.ny.connections.OkClientFactory;
+import ch.ny.dao.CityDao;
+import ch.ny.detailsactivity.DetailsActivity;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
