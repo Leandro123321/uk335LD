@@ -112,7 +112,7 @@ public class SearchActivity extends AppCompatActivity {
                 showNameActivityIntent.putExtra("key_city_id", object.getId());
                 showNameActivityIntent.putExtra("key_city_name", object.getCityName());
                 Log.e("TEMP", Float.toString(cityInfo.main.temp));
-                showNameActivityIntent.putExtra("key_city_temp", cityInfo.main.temp);
+                showNameActivityIntent.putExtra("key_city_temp", Math.round(cityInfo.main.temp));
                 showNameActivityIntent.putExtra("key_city_status", cityInfo.weather[0].main);
                 startActivity(showNameActivityIntent);
             }

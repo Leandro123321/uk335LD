@@ -83,7 +83,7 @@ public class DetailsActivity extends AppCompatActivity {
         TextView cityLabel = findViewById(R.id.lblTitle);
         cityLabel.setText(city.getName());
 
-        String temp = Integer.toString(Math.round(intent.getFloatExtra("key_city_temp", 0)));
+        String temp = Integer.toString(intent.getIntExtra("key_city_temp", 0));
         TextView mainTemp = findViewById(R.id.lblMainTemp);
         mainTemp.setText(temp + "°C");
 
