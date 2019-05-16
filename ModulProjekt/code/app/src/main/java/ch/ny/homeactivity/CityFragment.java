@@ -82,7 +82,6 @@ public class CityFragment extends Fragment implements View.OnClickListener {
             @Override
             public void run() {
                 String status = city.getStatus();
-                Log.e("STATUS", status);
                 switch (status) {
                     case "Clear":
                         background.setBackgroundResource(R.drawable.sunny_day);
