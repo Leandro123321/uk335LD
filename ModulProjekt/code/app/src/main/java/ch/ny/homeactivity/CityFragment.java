@@ -92,7 +92,7 @@ public class CityFragment extends Fragment implements View.OnClickListener {
                 startActivity(showDetailActivityIntent);
                 break;
             case R.id.btn_Favorit:
-                cityDao.deleteCity(city);
+                cityDao.UpdateNotFavorite(city.getId());
                 startActivity(new Intent (getActivity() , MainActivity.class));
                 break;
             default:

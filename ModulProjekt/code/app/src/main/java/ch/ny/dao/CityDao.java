@@ -32,6 +32,9 @@ public interface CityDao {
     @Query("UPDATE city SET isFavorite = 1 WHERE id = :id")
     void UpdateFavorite(int id);
 
+    @Query("UPDATE city SET isFavorite = 0 WHERE id = :id")
+    void UpdateNotFavorite(int id);
+
     @Delete
     void deleteCity(City city);
 }
