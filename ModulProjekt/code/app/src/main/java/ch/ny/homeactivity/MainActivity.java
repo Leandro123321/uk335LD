@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, SearchActivity.class));
     }
 
-    private List<City> loadCities() {
+    public List<City> loadCities() {
         List<City> list;
 
         String json = null;

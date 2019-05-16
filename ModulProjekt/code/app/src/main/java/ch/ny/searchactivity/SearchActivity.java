@@ -62,6 +62,12 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        finish();
+    }
+
     public void UpdateListView(String text){
         List<ListViewObject> itemList = new ArrayList<>();
 
