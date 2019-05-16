@@ -31,7 +31,6 @@ import okhttp3.Response;
 public class SearchActivity extends AppCompatActivity {
 
     private CityDao cityDao;
-    private List<City> cityList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +43,27 @@ public class SearchActivity extends AppCompatActivity {
 
         cityDao = AppDatabase.getAppDb(getApplicationContext()).getCityDao();
 
+        // update the list with the default order so it has information when you start this activity
         UpdateListView("");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            /**
+             * This function is redundant after the onQueryTextChange is called
+             * Although this object requires the method definition
+             * @param query
+             * @return
+             */
             @Override
             public boolean onQueryTextSubmit(String query) {
                 return true;
             }
 
+            /**
+             * Update the listView with the entered search query text
+             * @param newText
+             * @return
+             */
             @Override
             public boolean onQueryTextChange(String newText) {
                 UpdateListView(newText);
@@ -74,14 +86,21 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Avoids that this activity lands in the backstack
+     */
     @Override
     protected void onPause() {
         super.onPause();
         finish();
     }
 
-    // Call API
-    public void getHttpResponse(ListViewObject oldCityInfo) throws IOException{
+    /**
+     * Calls the api to get the current information of the newly added city (temperature and status)
+     * @param oldCityInfo
+     * @throws IOException
+     */
+    public void getHttpResponse(ListViewObject oldCityInfo) throws IOException {
         final ListViewObject object = oldCityInfo;
 
         String url = "https://api.openweathermap.org/data/2.5/weather?id="+object.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
@@ -101,6 +120,12 @@ public class SearchActivity extends AppCompatActivity {
                 System.out.println(message);
             }
 
+            /**
+             * Starts the details activity with the new information
+             * @param call
+             * @param response
+             * @throws IOException
+             */
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
@@ -119,6 +144,11 @@ public class SearchActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Updates the 10 entries on our results list with text that
+     * corresponds to the search entered by the user
+     * @param text
+     */
     public void UpdateListView(String text){
         List<ListViewObject> itemList = new ArrayList<>();
 

@@ -32,6 +32,8 @@ import okhttp3.Response;
  * A simple {@link Fragment} subclass.
  * Instances of this class are fragments representing a single
  * object in our collection
+ *
+ * (Auto generated comment)
  */
 public class CityFragment extends Fragment implements View.OnClickListener {
 
@@ -61,17 +63,46 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_city, container, false);
 
-        TextView TemperatureLabel = v.findViewById(R.id.lbl_Temperatur);
+        background = v.findViewById(R.id.background);
 
+        TextView TemperatureLabel = v.findViewById(R.id.lbl_Temperatur);
         TemperatureLabel.setOnClickListener(this);
 
         ImageView btnFavorite = v.findViewById(R.id.btn_Favorit);
-
         btnFavorite.setOnClickListener(this);
+
         return v;
     }
 
+    /**
+     * Set background relative to the current weather status
+     */
+    private void setBackground() {
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String status = city.getStatus();
+                switch (status) {
+                    case "Clear":
+                        background.setBackgroundResource(R.drawable.sunny_day);
+                        break;
+                    case"Rain":
+                    case "Drizzle":
+                    case "Thunderstorm":
+                        background.setBackgroundResource(R.drawable.rainy_day);
+                        break;
+                    default:
+                        background.setBackgroundResource(R.drawable.cloudy_day);
+                }
+            }
+        });
+    }
 
+    /**
+     * If you click on the favorite button you will remove the city from your favorites
+     * If you click on the temperature you will go the details activity with the respective city's info
+     * @param v
+     */
     @Override
     public void onClick(View v){
         switch (v.getId()){
@@ -89,7 +120,6 @@ public class CityFragment extends Fragment implements View.OnClickListener {
                 break;
             default:
                 break;
-
         }
     }
 
@@ -99,9 +129,6 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         temperatureLbl = view.findViewById(R.id.lbl_Temperatur);
         background = view.findViewById(R.id.background);
 
-        //Set Background
-        //setBackground();
-
         client = OkClientFactory.getClient();
         try {
             getHttpResponse();
@@ -110,7 +137,10 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    // Call API
+    /**
+     * Gets the current weather information for the displayed city
+     * @throws IOException
+     */
     public void getHttpResponse() throws IOException{
         String url = "https://api.openweathermap.org/data/2.5/weather?id="+city.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
 
@@ -127,6 +157,12 @@ public class CityFragment extends Fragment implements View.OnClickListener {
                 System.out.println(message);
             }
 
+            /**
+             * Update the UI with the information
+             * @param call
+             * @param response
+             * @throws IOException
+             */
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
@@ -134,13 +170,17 @@ public class CityFragment extends Fragment implements View.OnClickListener {
                 Gson gson = new Gson();
                 CityInfoDto cityInfo = gson.fromJson(body, CityInfoDto.class);
 
-                // Update all changed values
-                //Log.e("STATUS", cityInfo.weather[0].main);
                 setNewValues(Math.round(cityInfo.main.temp), cityInfo.weather[0].main);
+                setBackground();
             }
         });
     }
 
+    /**
+     *
+     * @param temperature
+     * @param status
+     */
     private void setNewValues(int temperature, String status) {
         city.setTemperature(temperature);
         city.setStatus(status);

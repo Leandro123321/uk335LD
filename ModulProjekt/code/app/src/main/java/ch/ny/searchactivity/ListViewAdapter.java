@@ -15,29 +15,12 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
 
     private LayoutInflater mLayoutInflater;
 
-    /**
-     * Konstruktor. Initialisiert gewisse Member Variablen.
-     *
-     * @param context Context der Applikation.
-     * @param items Item in der Liste
-     * @since 1.0
-     */
     public ListViewAdapter(Context context, List<ListViewObject> items) {
         super(context, R.layout.activity_search_listview_layout);
         addAll(items);
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    /**
-     * Gibt die View eines einzelnen Eintrags in der Liste zurück.
-     *
-     * @param position Position des anzuzeigenden Eintrags.
-     * @param convertView Das alte View, welches wiederbenutzt werden soll. Null wenn kein altes
-     * View vorhanden ist.
-     * @param parent Das Eltern-View.
-     * @return View eines spezifischen ListView-Eintrags
-     * @since 1.0
-     */
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
