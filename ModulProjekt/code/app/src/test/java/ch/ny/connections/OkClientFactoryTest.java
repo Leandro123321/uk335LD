@@ -10,7 +10,7 @@ public class OkClientFactoryTest {
 
     @Test
     public void When_getClient_IsCalledMultipleTimes_ReturnTheSameObject() {
-        //Arrange % Act
+        //Arrange & Act
         OkHttpClient client1 = OkClientFactory.getClient();
         OkHttpClient client2 = OkClientFactory.getClient();
 
