@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ch.ny.homeactivity">
+    package="ch.ny.screens.homeactivity">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name="ch.ny.detailsactivity.DetailsActivity"
+            android:name="ch.ny.screens.detailsactivity.DetailsActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="ch.ny.searchactivity.SearchActivity"
+            android:name="ch.ny.screens.searchactivity.SearchActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".MainActivity"
