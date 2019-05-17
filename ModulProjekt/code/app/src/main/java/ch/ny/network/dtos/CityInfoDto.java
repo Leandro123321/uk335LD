@@ -1,4 +1,4 @@
-package ch.ny.dtos;
+package ch.ny.network.dtos;
 
 import java.time.LocalDateTime;
 
