@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/neutral_background"
-    tools:context="ch.ny.detailsactivity.DetailsActivity">
+    tools:context="ch.ny.screens.detailsactivity.DetailsActivity">
 
     <TextView
         android:id="@+id/lblTitle"

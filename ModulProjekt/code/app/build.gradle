@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "ch.ny.homeactivity"
+        applicationId "ch.ny.screens.homeactivity"
         minSdkVersion 26
         targetSdkVersion 28
         versionCode 1
