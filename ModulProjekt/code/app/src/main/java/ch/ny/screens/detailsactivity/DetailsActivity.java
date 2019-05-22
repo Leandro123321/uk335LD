@@ -61,15 +61,16 @@ public class DetailsActivity extends AppCompatActivity {
         hourlyListViewObjectList = new ArrayList<>();
         weeklyListViewObjectList = new ArrayList<>();
 
+        // Hourly view does not exist any more. Since of 22.05.2019
         // recycler view adapter setup
-        hourlyView = findViewById(R.id.recyclerHourly);
+        //hourlyView = findViewById(R.id.recyclerHourly);
         // Add divider
-        hourlyView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL));
+        //hourlyView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL));
         // Setup adapter and layout manager
-        recyclerViewAdapter = new HourlyRecyclerViewAdapter(hourlyListViewObjectList, getApplicationContext());
-        LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        hourlyView.setLayoutManager(horizontalLayoutManager);
-        hourlyView.setAdapter(recyclerViewAdapter);
+        //recyclerViewAdapter = new HourlyRecyclerViewAdapter(hourlyListViewObjectList, getApplicationContext());
+        //LinearLayoutManager horizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        //hourlyView.setLayoutManager(horizontalLayoutManager);
+        //hourlyView.setAdapter(recyclerViewAdapter);
 
         // List view setup
         weeklyView = findViewById(R.id.listWeekly);
@@ -97,7 +98,7 @@ public class DetailsActivity extends AppCompatActivity {
 
         client = OkClientFactory.getClient();
 
-        getHourlyForecast();
+        //getHourlyForecast();
         getWeeklyForecast();
     }
 
