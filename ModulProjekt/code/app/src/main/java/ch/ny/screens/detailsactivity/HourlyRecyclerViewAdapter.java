@@ -18,7 +18,6 @@ public class HourlyRecyclerViewAdapter extends RecyclerView.Adapter<HourlyRecycl
 
     public HourlyRecyclerViewAdapter(List<HourlyListViewObject> itemList, Context context) {
         this.itemList = itemList;
-        Context context1 = context;
     }
 
     @Override
