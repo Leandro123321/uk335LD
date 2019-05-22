@@ -14,20 +14,18 @@ import ch.ny.screens.homeactivity.R;
 
 public class HourlyRecyclerViewAdapter extends RecyclerView.Adapter<HourlyRecyclerViewAdapter.HourlyViewHolder> {
 
-    private List<HourlyListViewObject> itemList;
-    private Context context;
+    private final List<HourlyListViewObject> itemList;
 
     public HourlyRecyclerViewAdapter(List<HourlyListViewObject> itemList, Context context) {
         this.itemList = itemList;
-        this.context = context;
+        Context context1 = context;
     }
 
     @Override
     public HourlyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // inflate the layout file
         View hourlyObjectView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_details_hourly_recyclerview_layout, parent, false);
-        HourlyViewHolder hvh = new HourlyViewHolder(hourlyObjectView);
-        return hvh;
+        return new HourlyViewHolder(hourlyObjectView);
     }
 
     @Override
@@ -44,11 +42,11 @@ public class HourlyRecyclerViewAdapter extends RecyclerView.Adapter<HourlyRecycl
     }
 
     public static class HourlyViewHolder extends RecyclerView.ViewHolder{
-        TextView timeTextView;
-        TextView temperatureTextView;
-        ImageView statusImageView;
+        final TextView timeTextView;
+        final TextView temperatureTextView;
+        final ImageView statusImageView;
 
-        public HourlyViewHolder(View view) {
+        HourlyViewHolder(View view) {
             super(view);
             timeTextView = view.findViewById(R.id.lblTime);
             temperatureTextView = view.findViewById(R.id.lblTemp);

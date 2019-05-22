@@ -7,6 +7,6 @@
     <dimen name="favorite_icon_constraint_top">20dp</dimen>
     <dimen name="activity_title_font_size">24sp</dimen>
     <dimen name="info_component_font_size">18sp</dimen>
-    <dimen name="info_component_height"></dimen>
-    <dimen name="info_component_width"></dimen>
+    <dimen name="info_component_height" />
+    <dimen name="info_component_width" />
 </resources>

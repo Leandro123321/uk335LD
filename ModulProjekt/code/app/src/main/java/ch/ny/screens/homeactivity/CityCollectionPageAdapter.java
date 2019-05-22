@@ -13,9 +13,9 @@ import ch.ny.persistence.entity.City;
  * This Class serves as the "interface" between each collection member that will be
  * displayed and it also holds the city collection
  */
-public class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
+class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
 
-    private List<City> cityList;
+    private final List<City> cityList;
 
     public CityCollectionPageAdapter(FragmentManager fm, List<City> cityList) {
         super(fm);

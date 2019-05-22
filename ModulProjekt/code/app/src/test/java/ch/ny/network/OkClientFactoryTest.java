@@ -15,6 +15,6 @@ public class OkClientFactoryTest {
         OkHttpClient client2 = OkClientFactory.getClient();
 
         //Assert
-        assertTrue(client1.equals(client2));
+        assertEquals(client1, client2);
     }
 }

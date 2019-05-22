@@ -77,11 +77,7 @@ public class SearchActivity extends AppCompatActivity {
                 ListViewObject object = (ListViewObject) parent.getItemAtPosition(position);
                 cityDao.UpdateFavorite(object.getId());
 
-                try {
-                    getHttpResponse(object);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                getHttpResponse(object);
             }
         });
     }
@@ -98,9 +94,8 @@ public class SearchActivity extends AppCompatActivity {
     /**
      * Calls the api to get the current information of the newly added city (temperature and status)
      * @param oldCityInfo
-     * @throws IOException
      */
-    public void getHttpResponse(ListViewObject oldCityInfo) throws IOException {
+    private void getHttpResponse(ListViewObject oldCityInfo) {
         final ListViewObject object = oldCityInfo;
 
         String url = "https://api.openweathermap.org/data/2.5/weather?id="+object.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
@@ -149,7 +144,7 @@ public class SearchActivity extends AppCompatActivity {
      * corresponds to the search entered by the user
      * @param text
      */
-    public void UpdateListView(String text){
+    private void UpdateListView(String text){
         List<ListViewObject> itemList = new ArrayList<>();
 
         List<City> possibleCities = cityDao.getAllStartingWith(text);
