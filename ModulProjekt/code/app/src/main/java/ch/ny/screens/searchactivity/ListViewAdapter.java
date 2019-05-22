@@ -11,9 +11,9 @@ import java.util.List;
 
 import ch.ny.screens.homeactivity.R;
 
-public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
+class ListViewAdapter extends ArrayAdapter<ListViewObject> {
 
-    private LayoutInflater mLayoutInflater;
+    private final LayoutInflater mLayoutInflater;
 
     public ListViewAdapter(Context context, List<ListViewObject> items) {
         super(context, R.layout.activity_search_listview_layout);
@@ -43,7 +43,7 @@ public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
         return convertView;
     }
 
-    public static class ViewHolder {
+    static class ViewHolder {
         TextView itemNameTextView;
         TextView itemNumberTextView;
     }

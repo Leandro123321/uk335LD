@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,12 +24,12 @@ import ch.ny.screens.searchactivity.SearchActivity;
 public class MainActivity extends AppCompatActivity {
 
 
-    CityDao cityDao;
+    private CityDao cityDao;
 
     // When requested, this adapter returns a DemoObjectFragment,
     // representing an object in the collection
-    CityCollectionPageAdapter cityCollectionPagerAdapter;
-    ViewPager viewPager;
+    private CityCollectionPageAdapter cityCollectionPagerAdapter;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
      * Loads all cities from the JSON file and saves them in the Local Database
      * @return
      */
-    public List<City> loadCities() {
+    private List<City> loadCities() {
         List<City> list;
 
         String json = null;
@@ -86,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             is.read(buffer);
             is.close();
 
-            json = new String(buffer, "UTF-8");
+            json = new String(buffer, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }

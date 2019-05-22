@@ -1,7 +1,7 @@
 package ch.ny.network.dtos;
 
 public class WeatherInfoMainDto {
-    public float temp;
+    public final float temp;
     public float temp_min;
     public float temp_max;
 

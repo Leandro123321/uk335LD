@@ -19,8 +19,7 @@
             android:layout_width="@dimen/icon_width"
             android:layout_height="@dimen/icon_height"
             android:layout_marginTop="@dimen/favorite_icon_constraint_top"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="@dimen/favorite_icon_constraint_right"
+            android:layout_marginEnd="@dimen/favorite_icon_constraint_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/favorite_selected" />
@@ -30,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
             android:layout_marginBottom="80dp"
             android:text="@string/home_temperature"
             android:textColor="@android:color/white"

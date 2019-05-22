@@ -11,9 +11,9 @@ import java.util.List;
 
 import ch.ny.screens.homeactivity.R;
 
-public class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
+class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
 
-    private LayoutInflater mLayoutInflater;
+    private final LayoutInflater mLayoutInflater;
 
     /**
      * Konstruktor. Initialisiert gewisse Member Variablen.
@@ -63,7 +63,7 @@ public class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
         return convertView;
     }
 
-    public static class ViewHolder {
+    static class ViewHolder {
         TextView weekDayTextView;
         TextView minTempTextView;
         TextView maxTempTextView;

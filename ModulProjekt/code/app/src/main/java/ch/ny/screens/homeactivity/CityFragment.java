@@ -130,18 +130,14 @@ public class CityFragment extends Fragment implements View.OnClickListener {
         background = view.findViewById(R.id.background);
 
         client = OkClientFactory.getClient();
-        try {
-            getHttpResponse();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        getHttpResponse();
     }
 
     /**
      * Gets the current weather information for the displayed city
-     * @throws IOException
      */
-    public void getHttpResponse() throws IOException{
+    private void getHttpResponse() {
         String url = "https://api.openweathermap.org/data/2.5/weather?id="+city.getId()+"&units=metric&appid=77078c41435ef3379462eb28afbdf417";
 
         Request request = new Request.Builder()

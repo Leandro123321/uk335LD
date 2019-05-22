@@ -3,8 +3,6 @@ package ch.ny.screens.detailsactivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
@@ -238,8 +236,7 @@ public class DetailsActivity extends AppCompatActivity {
         for (int i = 0; i < citiesUnsorted.size(); i++) {
             CityInfoDto city = citiesUnsorted.get(i);
 
-            LocalDateTime time =  Instant.ofEpochMilli(city.dt * 1000).atZone(ZoneId.systemDefault()).toLocalDate().atStartOfDay();
-            city.time = time;
+            city.time = Instant.ofEpochMilli(city.dt * 1000).atZone(ZoneId.systemDefault()).toLocalDate().atStartOfDay();
         }
 
         // Sort cities to only have one entry for each day and get the average for min and max
