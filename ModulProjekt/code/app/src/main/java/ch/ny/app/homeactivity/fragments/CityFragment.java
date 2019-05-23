@@ -1,4 +1,4 @@
-package ch.ny.screens.homeactivity;
+package ch.ny.app.homeactivity.fragments;
 
 
 import android.content.Intent;
@@ -20,7 +20,9 @@ import ch.ny.persistence.entity.City;
 import ch.ny.persistence.AppDatabase;
 import ch.ny.network.OkClientFactory;
 import ch.ny.persistence.dao.CityDao;
-import ch.ny.screens.detailsactivity.DetailsActivity;
+import ch.ny.app.detailsactivity.ui.DetailsActivity;
+import ch.ny.app.homeactivity.ui.MainActivity;
+import ch.ny.app.homeactivity.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;

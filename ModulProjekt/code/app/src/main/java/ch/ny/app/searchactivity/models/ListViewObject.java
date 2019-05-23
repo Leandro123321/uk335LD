@@ -1,6 +1,6 @@
-package ch.ny.screens.searchactivity;
+package ch.ny.app.searchactivity.ui.listviews;
 
-class ListViewObject {
+public class ListViewObject {
     private int id;
     private String cityName;
     private String country;

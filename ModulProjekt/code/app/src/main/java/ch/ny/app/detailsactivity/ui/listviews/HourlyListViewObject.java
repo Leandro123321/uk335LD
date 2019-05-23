@@ -1,6 +1,6 @@
-package ch.ny.screens.detailsactivity;
+package ch.ny.ui.detailsactivity.listviews;
 
-class HourlyListViewObject {
+public class HourlyListViewObject {
 
     private String time;
     private String status;

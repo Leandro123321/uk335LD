@@ -1,4 +1,4 @@
-package ch.ny.screens.detailsactivity;
+package ch.ny.ui.detailsactivity.listviews;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-
-import ch.ny.screens.homeactivity.R;
+import ch.ny.ui.detailsactivity.DetailsActivity;
+import ch.ny.ui.homeactivity.R;
 
 public class HourlyRecyclerViewAdapter extends RecyclerView.Adapter<HourlyRecyclerViewAdapter.HourlyViewHolder> {
 

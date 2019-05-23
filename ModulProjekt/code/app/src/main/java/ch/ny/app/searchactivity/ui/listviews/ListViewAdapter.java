@@ -1,4 +1,4 @@
-package ch.ny.screens.searchactivity;
+package ch.ny.ui.searchactivity.listviews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ch.ny.screens.homeactivity.R;
+import ch.ny.ui.homeactivity.R;
 
-class ListViewAdapter extends ArrayAdapter<ListViewObject> {
+public class ListViewAdapter extends ArrayAdapter<ListViewObject> {
 
     private final LayoutInflater mLayoutInflater;
 

@@ -1,4 +1,4 @@
-package ch.ny.screens.detailsactivity;
+package ch.ny.ui.detailsactivity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +19,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +27,11 @@ import java.util.List;
 import ch.ny.network.dtos.CityInfoDto;
 import ch.ny.persistence.entity.City;
 import ch.ny.network.OkClientFactory;
-import ch.ny.screens.homeactivity.R;
+import ch.ny.ui.detailsactivity.listviews.HourlyListViewObject;
+import ch.ny.ui.detailsactivity.listviews.HourlyRecyclerViewAdapter;
+import ch.ny.ui.detailsactivity.listviews.WeeklyListViewAdapter;
+import ch.ny.ui.detailsactivity.listviews.WeeklyListViewObject;
+import ch.ny.ui.homeactivity.R;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;

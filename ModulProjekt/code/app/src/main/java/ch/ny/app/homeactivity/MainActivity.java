@@ -1,4 +1,4 @@
-package ch.ny.screens.homeactivity;
+package ch.ny.app.homeactivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,10 +16,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 
+import ch.ny.app.homeactivity.R;
 import ch.ny.persistence.entity.City;
 import ch.ny.persistence.AppDatabase;
 import ch.ny.persistence.dao.CityDao;
-import ch.ny.screens.searchactivity.SearchActivity;
+import ch.ny.app.homeactivity.ui.fragments.CityCollectionPageAdapter;
+import ch.ny.app.searchactivity.SearchActivity;
 
 public class MainActivity extends AppCompatActivity {
 

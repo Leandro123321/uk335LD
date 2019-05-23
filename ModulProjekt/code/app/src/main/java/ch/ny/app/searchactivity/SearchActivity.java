@@ -1,4 +1,4 @@
-package ch.ny.screens.searchactivity;
+package ch.ny.app.searchactivity.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,8 +20,10 @@ import ch.ny.persistence.entity.City;
 import ch.ny.persistence.AppDatabase;
 import ch.ny.network.OkClientFactory;
 import ch.ny.persistence.dao.CityDao;
-import ch.ny.screens.detailsactivity.DetailsActivity;
-import ch.ny.screens.homeactivity.R;
+import ch.ny.app.detailsactivity.ui.DetailsActivity;
+import ch.ny.app.homeactivity.R;
+import ch.ny.app.searchactivity.ui.listviews.ListViewAdapter;
+import ch.ny.app.searchactivity.ui.listviews.ListViewObject;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.OkHttpClient;
@@ -38,13 +40,12 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         SearchView searchView = findViewById(R.id.searchcity);
-
         ListView listview = findViewById(R.id.listCities);
 
         cityDao = AppDatabase.getAppDb(getApplicationContext()).getCityDao();
 
         // update the list with the default order so it has information when you start this activity
-        UpdateListView("");
+        updateListView("");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
@@ -66,7 +67,7 @@ public class SearchActivity extends AppCompatActivity {
              */
             @Override
             public boolean onQueryTextChange(String newText) {
-                UpdateListView(newText);
+                updateListView(newText);
                 return false;
             }
         });
@@ -117,9 +118,6 @@ public class SearchActivity extends AppCompatActivity {
 
             /**
              * Starts the details activity with the new information
-             * @param call
-             * @param response
-             * @throws IOException
              */
             @Override
             public void onResponse(Call call, Response response) throws IOException {
@@ -142,9 +140,9 @@ public class SearchActivity extends AppCompatActivity {
     /**
      * Updates the 10 entries on our results list with text that
      * corresponds to the search entered by the user
-     * @param text
      */
-    private void UpdateListView(String text){
+    @Override
+    public void updateListView(String text){
         List<ListViewObject> itemList = new ArrayList<>();
 
         List<City> possibleCities = cityDao.getAllStartingWith(text);

@@ -1,6 +1,6 @@
-package ch.ny.screens.detailsactivity;
+package ch.ny.ui.detailsactivity.listviews;
 
-class WeeklyListViewObject {
+public class WeeklyListViewObject {
 
     private String weekday;
     private String minTemp;

@@ -1,4 +1,4 @@
-package ch.ny.screens.homeactivity;
+package ch.ny.app.homeactivity.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +13,7 @@ import ch.ny.persistence.entity.City;
  * This Class serves as the "interface" between each collection member that will be
  * displayed and it also holds the city collection
  */
-class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
+public class CityCollectionPageAdapter extends FragmentStatePagerAdapter {
 
     private final List<City> cityList;
 

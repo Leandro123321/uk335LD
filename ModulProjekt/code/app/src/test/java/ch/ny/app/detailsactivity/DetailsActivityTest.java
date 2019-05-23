@@ -1,8 +1,8 @@
-package ch.ny.screens.detailsactivity;
+package ch.ny.ui.detailsactivity;
 
 import org.junit.Test;
 
-import ch.ny.screens.homeactivity.R;
+import ch.ny.ui.homeactivity.R;
 
 import static org.junit.Assert.*;
 

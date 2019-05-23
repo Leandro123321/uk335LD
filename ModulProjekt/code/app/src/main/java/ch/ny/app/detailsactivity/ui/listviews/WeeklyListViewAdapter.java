@@ -1,4 +1,4 @@
-package ch.ny.screens.detailsactivity;
+package ch.ny.ui.detailsactivity.listviews;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import ch.ny.screens.homeactivity.R;
+import ch.ny.ui.homeactivity.R;
 
-class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
+public class WeeklyListViewAdapter extends ArrayAdapter<WeeklyListViewObject> {
 
     private final LayoutInflater mLayoutInflater;
 
